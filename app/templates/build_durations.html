@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+	<section class="hero is-info welcome is-small">
+		<div class="hero-body">
+			<div class="container">
+				<h1 class="title">
+					Build Durations
+				</h1>
+				<h2 class="subtitle">
+					Checkout long running jobs!
+				</h2>
+			</div>
+		</div>
+	</section>
+
+
+	<section class="section is-fullheight">
+		{% for item_row in items | batch(3, '&nbsp;') %}
+		<div class="tile is-ancestor">
+			{% for item in item_row %}
+				{% if item.name is defined %}
+					<div class="tile is-parent">
+						<article class="tile is-child box">
+							<a href="{{ item.url }}">
+								<p class="title is-4">{{ item.duration_display }}</p>
+								<p class="subtitle is-6">{{ item.name }}</p>
+							</a>
+						</article>
+					</div>
+				{% else %}
+					<div class="tile is-parent"></div>
+				{% endif %}
+			{% endfor %}
+		</div>
+		{% endfor %}
+	</section>
+
+{% endblock %}

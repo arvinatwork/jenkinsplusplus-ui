@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+	<section class="hero is-info welcome is-small">
+		<div class="hero-body">
+			<div class="container">
+				<h1 class="title">
+					Hello,
+				</h1>
+				<h2 class="subtitle">
+					I hope you are having a great day!
+				</h2>
+			</div>
+		</div>
+	</section>
+
+	<section class="info-tiles">
+		<div class="tile is-ancestor has-text-centered">
+			<div class="tile is-parent">
+				<article class="tile is-child box">
+					<a href="/builds">
+						<p class="title">Jobs</p>
+						<p class="subtitle">Build Durations</p>
+					</a>
+				</article>
+			</div>
+			<div class="tile is-parent">
+				<article class="tile is-child box">
+					<a href="/labels">
+						<p class="title">Nodes</p>
+						<p class="subtitle">Labels View</p>
+					</a>
+				</article>
+			</div>
+			<div class="tile is-parent">
+				<article class="tile is-child box">
+					<a href="/monitors">
+						<p class="title">Add More</p>
+						<p class="subtitle">Contribute</p>
+					</a>
+				</article>
+			</div>
+		</div>
+		<div class="tile is-ancestor has-text-centered">
+			<div class="tile is-parent">
+				<article class="tile is-child box">
+					<p class="title"></p>
+					<p class="subtitle"></p>
+				</article>
+			</div>
+			<div class="tile is-parent">
+				<article class="tile is-child box">
+					<a href="#">
+						<p class="title"></p>
+						<p class="subtitle"></p>
+					</a>
+				</article>
+			</div>
+			<div class="tile is-parent">
+				<article class="tile is-child box">
+					<p class="title"></p>
+					<p class="subtitle"></p>
+				</article>
+			</div>
+		</div>
+	</section>
+
+{% endblock %}

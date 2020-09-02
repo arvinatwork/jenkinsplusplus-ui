@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+	<section class="hero is-info welcome is-small">
+		<div class="hero-body">
+			<div class="container">
+				<h1 class="title">
+					Node Labels View
+				</h1>
+				<h2 class="subtitle">
+					Manage nodes by labels!
+				</h2>
+			</div>
+		</div>
+	</section>
+
+	<section class="section">
+		{% for labels_row in labels | batch(3, '&nbsp;') %}
+		<div class="tile is-ancestor">
+			{% for label in labels_row %}
+				{% if label.name is defined %}
+					<div class="tile is-parent">
+						<article class="tile is-child box">
+							<a href="{{ label.link }}">
+								<p class="title is-4">{{ label.name }}</p>
+								<p class="subtitle is-6">
+									{% if label.count|int > 1 %}
+										{{ label.count }} nodes
+									{% else %}
+										{{ label.count }} node
+									{% endif %}
+							  </p>
+							</a>
+						</article>
+					</div>
+				{% else %}
+					<div class="tile is-parent"></div>
+				{% endif %}
+			{% endfor %}
+		</div>
+		{% endfor %}
+	</section>
+
+{% endblock %}

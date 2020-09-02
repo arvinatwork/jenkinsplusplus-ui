@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock %} Jenkins++</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='bulma.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='tree.css') }}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    </head>
+
+    <body>
+        <nav class="navbar is-white">
+            <div class="container is-fluid">
+                <div class="navbar-brand jenkins-brand">
+                    <a class="navbar-item title" href="#">Jenkins++</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container is-fluid">
+            <div class="columns">
+                <div class="column is-2">
+                    <aside class="menu is-hidden-mobile">
+                        <p class="menu-label">
+                            General
+                        </p>
+                        <ul class="menu-list">
+                            <li><a class="is-active" href="/">Home</a></li>
+                        </ul>
+                        <p class="menu-label">
+                            Administration
+                        </p>
+                        <ul class="menu-list">
+                            <li>
+                                <a>Jobs</a>
+                                <ul>
+                                    <li><a href="/builds">Build Durations</a></li>
+                                    <li><a href="/queue">Queue Monitor</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a>Nodes</a>
+                                <ul>
+                                    <li><a href="/labels">Labels View</a></li>
+                                </ul>
+                            </li>
+                    </aside>
+                </div>
+
+                <div class="column is-9">
+                    {% for message in get_flashed_messages() %}
+                    <div class="flash">{{ message }}</div>
+                    {% endfor %}
+
+                    {% block content %}{% endblock %}
+                </div>
+
+            </div>
+        </div>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    </body>
+</html>
